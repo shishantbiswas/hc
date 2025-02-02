@@ -1,4 +1,4 @@
-FROM php:8.0
+FROM php:8.2-fpm
 
 # Install system dependencies
 RUN apt-get update -y && apt-get install -y \
@@ -26,9 +26,11 @@ COPY . /app
 # Install PHP dependencies
 RUN composer install
 
-# Copy supervisor configuration
+# Copy Supervisor configuration
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-# Expose port and start PHP server
-CMD php artisan serve --host=0.0.0.0 --port=8181
-EXPOSE 8181
+# Expose port
+EXPOSE 9000
+
+# Start Supervisor to manage processes
+CMD ["/usr/bin/supervisord"]
