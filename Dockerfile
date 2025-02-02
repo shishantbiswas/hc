@@ -23,6 +23,11 @@ WORKDIR /app
 # Copy existing application directory contents
 COPY . /app
 
+# Set permissions
+RUN chown -R www-data:www-data /app \
+    && chmod -R 775 /app/storage \
+    && chmod -R 775 /app/bootstrap/cache
+
 # Install PHP dependencies
 RUN composer install
 
@@ -32,5 +37,5 @@ COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 # Expose port
 EXPOSE 9000
 
-# Start Supervisor to manage processes
-CMD ["/usr/bin/supervisord"]
+# Start Supervisor
+CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
