@@ -3,9 +3,9 @@ generator client {
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  // directUrl = env("DIRECT_URL")
 }
 
 model User {
@@ -25,14 +25,15 @@ model User {
 }
 
 model Link {
-  id        String   @id @default(uuid())
-  href      String
-  name      String
-  status    Boolean  @default(true)
-  userId    String
-  createdAt DateTime
-  updatedAt DateTime
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id            String   @id @default(uuid())
+  href          String   @unique
+  name          String
+  favicon       String?
+  isDown        Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  userId        String
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Session {

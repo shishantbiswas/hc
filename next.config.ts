@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
       panicThreshold: "ALL_ERRORS",
     },
   },
+  pageExtensions: ['ts', 'tsx']
 };
 
 export default nextConfig;

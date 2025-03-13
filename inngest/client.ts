@@ -1,4 +1,8 @@
 import { Inngest } from "inngest";
 
-// Create a client to send and receive events
-export const inngest = new Inngest({ id: "my-app" });
+export const inngest = new Inngest({
+  id: "link-check",
+  isDev: false,
+  baseUrl: process.env.INNGEST_BASE_URL,
+  eventKey: process.env.INNGEST_EVENT_KEY,
+});

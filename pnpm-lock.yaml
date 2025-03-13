@@ -11,6 +11,9 @@ importers:
       '@prisma/client':
         specifier: ^6.4.1
         version: 6.4.1(prisma@6.4.1(typescript@5.8.2))(typescript@5.8.2)
+      '@react-spring/web':
+        specifier: ^9.7.5
+        version: 9.7.5(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       babel-plugin-react-compiler:
         specifier: 19.0.0-beta-bafa41b-20250307
         version: 19.0.0-beta-bafa41b-20250307
@@ -20,6 +23,9 @@ importers:
       inngest:
         specifier: ^3.31.7
         version: 3.31.7(next@15.2.1(babel-plugin-react-compiler@19.0.0-beta-bafa41b-20250307)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(typescript@5.8.2)
+      lucide-react:
+        specifier: ^0.479.0
+        version: 0.479.0(react@19.0.0)
       next:
         specifier: 15.2.1
         version: 15.2.1(babel-plugin-react-compiler@19.0.0-beta-bafa41b-20250307)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -42,6 +48,9 @@ importers:
       '@eslint/eslintrc':
         specifier: ^3.3.0
         version: 3.3.0
+      '@faker-js/faker':
+        specifier: ^9.6.0
+        version: 9.6.0
       '@tailwindcss/postcss':
         specifier: ^4.0.12
         version: 4.0.12
@@ -284,6 +293,10 @@ packages:
   '@eslint/plugin-kit@0.2.7':
     resolution: {integrity: sha512-JubJ5B2pJ4k4yGxaNLdbjrnk9d/iDz6/q8wOilpIowd6PJPgaxCuHBnBszq7Ce2TyMrywm5r4PnKm6V3iiZF+g==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@faker-js/faker@9.6.0':
+    resolution: {integrity: sha512-3vm4by+B5lvsFPSyep3ELWmZfE3kicDtmemVpuwl1yH7tqtnHdsA6hG8fbXedMVdkzgtvzWoRgjSB4Q+FHnZiw==}
+    engines: {node: '>=18.0.0', npm: '>=9.0.0'}
 
   '@hexagon/base64@1.1.28':
     resolution: {integrity: sha512-lhqDEAvWixy3bZ+UOYbPwUbBkwBq5C1LAJ/xPC8Oi+lL54oyakv/npbA0aU2hgCsx/1NUd4IBvV03+aUBWxerw==}
@@ -558,6 +571,33 @@ packages:
     peerDependencies:
       react: ^18.0 || ^19.0 || ^19.0.0-rc
       react-dom: ^18.0 || ^19.0 || ^19.0.0-rc
+
+  '@react-spring/animated@9.7.5':
+    resolution: {integrity: sha512-Tqrwz7pIlsSDITzxoLS3n/v/YCUHQdOIKtOJf4yL6kYVSDTSmVK1LI1Q3M/uu2Sx4X3pIWF3xLUhlsA6SPNTNg==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+
+  '@react-spring/core@9.7.5':
+    resolution: {integrity: sha512-rmEqcxRcu7dWh7MnCcMXLvrf6/SDlSokLaLTxiPlAYi11nN3B5oiCUAblO72o+9z/87j2uzxa2Inm8UbLjXA+w==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+
+  '@react-spring/rafz@9.7.5':
+    resolution: {integrity: sha512-5ZenDQMC48wjUzPAm1EtwQ5Ot3bLIAwwqP2w2owG5KoNdNHpEJV263nGhCeKKmuA3vG2zLLOdu3or6kuDjA6Aw==}
+
+  '@react-spring/shared@9.7.5':
+    resolution: {integrity: sha512-wdtoJrhUeeyD/PP/zo+np2s1Z820Ohr/BbuVYv+3dVLW7WctoiN7std8rISoYoHpUXtbkpesSKuPIw/6U1w1Pw==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+
+  '@react-spring/types@9.7.5':
+    resolution: {integrity: sha512-HVj7LrZ4ReHWBimBvu2SKND3cDVUPWKLqRTmWe/fNY6o1owGOX0cAHbdPDTMelgBlVbrTKrre6lFkhqGZErK/g==}
+
+  '@react-spring/web@9.7.5':
+    resolution: {integrity: sha512-lmvqGwpe+CSttsWNZVr+Dg62adtKhauGwLyGE/RRyZ8AAMLgb9x3NDMA5RMElXo+IMyTkPp7nxTB8ZQlmhb6JQ==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
 
   '@rtsao/scc@1.1.0':
     resolution: {integrity: sha512-zt6OdqaDoOnJ1ZYsCYGt9YmWzDXl4vQdKTyJev62gFhRGKdx7mcT54V9KIjg+d2wi9EXsPvAPKe7i7WjfVWB8g==}
@@ -1650,6 +1690,11 @@ packages:
   lru-cache@10.4.3:
     resolution: {integrity: sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==}
 
+  lucide-react@0.479.0:
+    resolution: {integrity: sha512-aBhNnveRhorBOK7uA4gDjgaf+YlHMdMhQ/3cupk6exM10hWlEU+2QtWYOfhXhjAsmdb6LeKR+NZnow4UxRRiTQ==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
+
   math-intrinsics@1.1.0:
     resolution: {integrity: sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g==}
     engines: {node: '>= 0.4'}
@@ -2358,6 +2403,8 @@ snapshots:
       '@eslint/core': 0.12.0
       levn: 0.4.1
 
+  '@faker-js/faker@9.6.0': {}
+
   '@hexagon/base64@1.1.28': {}
 
   '@humanfs/core@0.19.1': {}
@@ -2585,6 +2632,38 @@ snapshots:
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
       react-promise-suspense: 0.3.4
+
+  '@react-spring/animated@9.7.5(react@19.0.0)':
+    dependencies:
+      '@react-spring/shared': 9.7.5(react@19.0.0)
+      '@react-spring/types': 9.7.5
+      react: 19.0.0
+
+  '@react-spring/core@9.7.5(react@19.0.0)':
+    dependencies:
+      '@react-spring/animated': 9.7.5(react@19.0.0)
+      '@react-spring/shared': 9.7.5(react@19.0.0)
+      '@react-spring/types': 9.7.5
+      react: 19.0.0
+
+  '@react-spring/rafz@9.7.5': {}
+
+  '@react-spring/shared@9.7.5(react@19.0.0)':
+    dependencies:
+      '@react-spring/rafz': 9.7.5
+      '@react-spring/types': 9.7.5
+      react: 19.0.0
+
+  '@react-spring/types@9.7.5': {}
+
+  '@react-spring/web@9.7.5(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+    dependencies:
+      '@react-spring/animated': 9.7.5(react@19.0.0)
+      '@react-spring/core': 9.7.5(react@19.0.0)
+      '@react-spring/shared': 9.7.5(react@19.0.0)
+      '@react-spring/types': 9.7.5
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
 
   '@rtsao/scc@1.1.0': {}
 
@@ -3907,6 +3986,10 @@ snapshots:
       js-tokens: 4.0.0
 
   lru-cache@10.4.3: {}
+
+  lucide-react@0.479.0(react@19.0.0):
+    dependencies:
+      react: 19.0.0
 
   math-intrinsics@1.1.0: {}
 

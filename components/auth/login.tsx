@@ -1,29 +1,34 @@
 "use client";
 
 import { signIn } from "@/lib/auth-client";
+import { useSearchParams } from "next/navigation";
 import { useState, useTransition } from "react";
 import { toast } from "sonner";
 
-export default function SignInPage() {
+export default function LoginPage() {
   const [email, setEmail] = useState<string>("");
   const [isPending, startTransition] = useTransition();
+  const searchParams = useSearchParams();
+
+  const callback = searchParams.get("callback_url") ?? "/dashboard";
+
   const login = () => {
     if (!email) {
-        toast.error("Email not provided");
+      toast.error("Email not provided");
       return;
     }
     startTransition(() => {
       signIn.magicLink({
         email,
-        callbackURL: "/success?method=magic",
+        callbackURL: callback,
       });
     });
   };
 
   return (
-    <section className=" h-[100vh] flex flex-col items-center justify-center">
+    <section className=" min-h-full flex flex-col items-center justify-center">
       <div className=" max-w-xl">
-        <h1 className="text-3xl font-semibold mb-4">Sign In</h1>
+        <h1 className="text-3xl font-semibold mb-4">Login</h1>
         <form
           className="flex flex-col "
           onSubmit={(ev) => {
@@ -55,7 +60,7 @@ export default function SignInPage() {
             ev.preventDefault();
             signIn.social({
               provider: "google",
-              callbackURL: "/success?method=google",
+              callbackURL: callback,
             });
           }}
         >

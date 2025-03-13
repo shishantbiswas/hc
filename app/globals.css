@@ -32,3 +32,15 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+button:not(:disabled):hover {
+  cursor: pointer;
+}
+
+:root,
+html,
+body{
+  height: 80vh;
+  width: 100%;
+}
