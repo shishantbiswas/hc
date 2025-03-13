@@ -20,8 +20,10 @@ export const getActiveLink = inngest.createFunction(
     );
 
     if (links.length === 0) {
-      console.log("No active links found. Skipping event dispatch.");
-      return;
+      return {
+        status: "error",
+        message: "No active links found. Skipping event dispatch.",
+      };
     }
 
     const events = links.map((link) => {
@@ -34,12 +36,17 @@ export const getActiveLink = inngest.createFunction(
   }
 );
 
-export const checkLinksStatus = inngest.createFunction(
+export const checkLinkStatus = inngest.createFunction(
   { id: "check-link-status" },
   { event: "check/send.active.link" },
   async ({ event, step }) => {
     const link = event.data as Link;
-    const isActive = await fetchRetry(link.href, { cache: "no-store" });
+
+    const isActive = await step.run(
+      "load-active-links",
+      async () => await fetchRetry(link.href, { cache: "no-store" })
+    );
+
     if (isActive) {
       await db.link.update({
         where: {
@@ -49,7 +56,10 @@ export const checkLinksStatus = inngest.createFunction(
           updatedAt: new Date().toISOString(),
         },
       });
-      return;
+      return {
+        status: "success",
+        message: "Link is Active.",
+      };
     } else {
       await db.link.update({
         where: {
@@ -65,6 +75,10 @@ export const checkLinksStatus = inngest.createFunction(
         name: "mail/send.link.down.email",
         data: link,
       });
+      return {
+        status: "error",
+        message: "Link is inactive. Preparing to send mail",
+      };
     }
   }
 );
@@ -86,10 +100,17 @@ export const sendLinkDownEmail = inngest.createFunction(
     );
 
     if (!user) {
-      return;
+      return {
+        status: "error",
+        message: "No user found associated with link.",
+      };
     }
 
     await sendLinkDownAlert(user.email, link, new Date());
+    return {
+      status: "success",
+      message: "Sending Link Down mail to user.",
+    };
   }
 );
 
@@ -108,8 +129,10 @@ export const getInactiveLink = inngest.createFunction(
     );
 
     if (links.length === 0) {
-      console.log("No inactive links found. Skipping event dispatch.");
-      return;
+      return {
+        status: "error",
+        message: "No active links found. Skipping event dispatch.",
+      };
     }
 
     const events = links.map((link) => {
@@ -177,8 +200,8 @@ export const sendLinkRefreshEmail = inngest.createFunction(
       return { status: "error", message: "no user found" };
     }
 
-    // await sendRefreshAlert(user.email, link, new Date());
+    await sendRefreshAlert(user.email, link, new Date());
 
-    return { status: "success", message: "refresh email send"  };
+    return { status: "success", message: "refresh email send" };
   }
 );

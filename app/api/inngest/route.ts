@@ -3,7 +3,7 @@
 import { serve } from "inngest/next";
 import { inngest } from "@/inngest/client";
 import {
-  checkLinksStatus,
+  checkLinkStatus,
   getActiveLink,
   sendLinkDownEmail,
   getInactiveLink,
@@ -14,7 +14,7 @@ import {
 export const { GET, POST, PUT } = serve({
   client: inngest,
   functions: [
-    checkLinksStatus,
+    checkLinkStatus,
     getActiveLink,
     sendLinkDownEmail,
     getInactiveLink,

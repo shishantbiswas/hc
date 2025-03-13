@@ -31,7 +31,7 @@ export default function LoginPage() {
   };
 
   return (
-    <section className=" min-h-full flex flex-col items-center justify-center">
+    <section className="h-[80vh] flex flex-col items-center justify-center">
       <div className=" max-w-xl">
         <h1 className="text-3xl font-semibold mb-4">Login</h1>
         <form

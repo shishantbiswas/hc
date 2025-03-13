@@ -21,7 +21,7 @@ const AddLink = () => {
   }, [state]);
 
   return (
-    <section className=" h-[100vh] flex flex-col items-center justify-center">
+    <section className=" h-[80vh] flex flex-col items-center justify-center">
       <div className=" max-w-xl">
         <h1 className="text-2xl font-semibold mb-4">Add URL</h1>
         <Form
@@ -79,17 +79,19 @@ const AddLink = () => {
             </p>
           )}
           <button
+            disabled={isPending}
             type="submit"
             className="w-full  p-1 border mt-4 rounded-lg cursor-pointer"
           >
             {isPending ? "Adding..." : "Add"}
           </button>
         </Form>
-        <Link href="/dashboard">
-          <button className="w-full bg-black text-white p-1 border mt-4 rounded-lg cursor-pointer">
-            Go to Dashboard
-          </button>
-        </Link>
+        <button
+          disabled={isPending}
+          className="w-full bg-black text-white p-1 border mt-4 rounded-lg cursor-pointer"
+        >
+          <Link href="/dashboard">Go to Dashboard</Link>
+        </button>
       </div>
     </section>
   );
