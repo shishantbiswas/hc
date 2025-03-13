@@ -2,12 +2,8 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   experimental: {
-    reactCompiler: {
-      compilationMode: "all",
-      panicThreshold: "ALL_ERRORS",
-    },
+    reactCompiler: true
   },
-  pageExtensions: ['ts', 'tsx']
 };
 
 export default nextConfig;

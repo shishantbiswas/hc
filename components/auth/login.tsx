@@ -21,6 +21,11 @@ export default function LoginPage() {
       signIn.magicLink({
         email,
         callbackURL: callback,
+        fetchOptions:{
+          onSuccess() {
+            toast.success("Email Sent!")
+          },
+        }
       });
     });
   };
@@ -49,27 +54,29 @@ export default function LoginPage() {
           <button
             disabled={isPending}
             type="submit"
-            className="w-full p-1 border mt-4 rounded-lg cursor-pointer"
+            className="w-full p-1 disabled:opacity-60 border mt-4 rounded-lg cursor-pointer"
           >
-            {isPending ? "logging in..." : "Login"}
+            {isPending ? "Logging in..." : "Login"}
           </button>
         </form>
         <form
           className="flex flex-col max-w-xl"
           onSubmit={(ev) => {
             ev.preventDefault();
-            signIn.social({
-              provider: "google",
-              callbackURL: callback,
+            startTransition(() => {
+              signIn.social({
+                provider: "google",
+                callbackURL: callback,
+              });
             });
           }}
         >
           <button
             disabled={isPending}
             type="submit"
-            className="w-full p-1 bg-black text-white mt-4 rounded-lg cursor-pointer"
+            className="w-full p-1 disabled:opacity-60 bg-black text-white mt-4 rounded-lg cursor-pointer"
           >
-            {isPending ? "logging in..." : "Sign in with Google"}
+            {isPending ? "Logging in..." : "Sign in with Google"}
           </button>
         </form>
       </div>
