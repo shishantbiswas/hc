@@ -16,7 +16,6 @@
   "dependencies": {
     "@better-fetch/fetch": "^1.1.15",
     "@prisma/client": "^6.4.1",
-    "@react-spring/web": "^9.7.5",
     "babel-plugin-react-compiler": "19.0.0-beta-bafa41b-20250307",
     "better-auth": "^1.2.3",
     "inngest": "^3.31.7",
