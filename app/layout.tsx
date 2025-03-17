@@ -5,7 +5,7 @@ import localFont from "next/font/local";
 import Navbar from "@/components/navbar";
 
 export const metadata: Metadata = {
-  title: "Site Health Check",
+  title: "HCN by BSWS ",
   description: "Link status checking site",
 };
 
