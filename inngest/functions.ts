@@ -7,7 +7,7 @@ import { revalidatePath } from "next/cache";
 
 export const getActiveLink = inngest.createFunction(
   { id: "get-active-link" },
-  { cron: "*/5 * * * *" },
+  { cron: "*/10 * * * *" },
   async ({ step }) => {
     const links = await step.run(
       "load-active-links",
