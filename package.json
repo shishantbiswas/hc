@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "@better-fetch/fetch": "^1.1.15",
-    "@neondatabase/serverless": "^0.10.4",
     "@prisma/adapter-neon": "^6.5.0",
     "@prisma/client": "^6.5.0",
     "babel-plugin-react-compiler": "19.0.0-beta-bafa41b-20250307",
